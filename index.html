@@ -1,7 +1,1227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8"><!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Svira - The TikTok Shop Affiliate's Secret Weapon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-olive: #1b1b18;
+            --gold: #d4b268;
+            --cream: #fff9ec;
+            --medium-olive: #4e5144;
+            --light-cream: #f7f4ed;
+            --orange: #e8613a;
+            --spacing: 1rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--dark-olive);
+            color: var(--dark-olive);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            color: var(--dark-olive);
+        }
+
+        .monospace-label {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .label-bracket::before {
+            content: '[ ';
+        }
+
+        .label-bracket::after {
+            content: ' ]';
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .gold-text {
+            color: var(--gold);
+        }
+
+        .cream-bg {
+            background-color: var(--cream);
+        }
+
+        .dark-bg {
+            background-color: var(--dark-olive);
+        }
+
+        /* Dotted Grid Pattern */
+        .dot-pattern {
+            background-image:
+                radial-gradient(circle, rgba(212, 178, 104, 0.15) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* CTA Button */
+        .btn-cta {
+            background-color: var(--gold);
+            color: var(--dark-olive);
+            border: none;
+            padding: 0.85rem 1.8rem;
+            border-radius: 100px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-cta::before {
+            content: '+ ';
+        }
+
+        .btn-cta:hover {
+            background-color: #e8c488;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 178, 104, 0.3);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(160deg, #5a6340 0%, #8b8b60 50%, #c4b88a 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 3rem;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle, rgba(255, 249, 236, 0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--cream);
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* Phone Mockup & Notifications */
+        .phone-mockup-container {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInRight 1s ease 0.2s backwards;
+        }
+
+        .phone-frame {
+            width: 280px;
+            height: 560px;
+            background: #000;
+            border-radius: 40px;
+            border: 8px solid #1b1b18;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: #000;
+            z-index: 10;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 40px 10px 10px;
+            overflow: hidden;
+        }
+
+        .tiktok-ui {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+            padding: 20px 0;
+        }
+
+        .play-button {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(212, 178, 104, 0.4);
+        }
+
+        .play-button::after {
+            content: 'â¶';
+            color: var(--dark-olive);
+            font-size: 1.2rem;
+            margin-left: 3px;
+        }
+
+        .tiktok-icon {
+            width: 35px;
+            height: 35px;
+            background: var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark-olive);
+            font-size: 0.7rem;
+        }
+
+        /* Floating Notification Cards */
+        .notification-cards {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .notification-card {
+            position: absolute;
+            background: var(--cream);
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            max-width: 240px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .notification-card:nth-child(1) {
+            top: 10%;
+            right: -15%;
+            animation-delay: 0s;
+        }
+
+        .notification-card:nth-child(2) {
+            bottom: 15%;
+            left: -10%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .notification-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold), var(--orange));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .notification-text {
+            font-size: 0.85rem;
+            color: var(--dark-olive);
+            line-height: 1.3;
+        }
+
+        .notification-text strong {
+            color: var(--dark-olive);
+            font-weight: 700;
+        }
+
+        /* STICKY BOTTOM NAV */
+        .sticky-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--dark-olive);
+            border-top: 2px solid var(--gold);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0 -5px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .sticky-logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--cream);
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .sticky-nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex: 1;
+            margin-left: 1rem;
+        }
+
+        .sticky-nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .sticky-nav-links a::after {
+            content: '*';
+            margin-left: 0.3rem;
+            color: var(--gold);
+        }
+
+        .sticky-nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .sticky-nav .btn-cta {
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        body {
+            padding-bottom: 80px;
+        }
+
+        /* LOGO BAR SECTION */
+        .logo-bar {
+            background-color: var(--light-cream);
+            padding: 3rem 2rem;
+            overflow: hidden;
+        }
+
+        .logo-bar-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: scroll-horizontal 20s linear infinite;
+        }
+
+        .logo-item {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--medium-olive);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        .logo-item.gold {
+            color: var(--gold);
+        }
+
+        .logo-divider {
+            width: 2px;
+            height: 20px;
+            background: var(--gold);
+        }
+
+        /* HOW IT WORKS SECTION */
+        .how-it-works {
+            background-color: var(--cream);
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--dark-olive);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--medium-olive);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .work-card {
+            background: var(--medium-olive);
+            border: 2px solid var(--gold);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(212, 178, 104, 0.2);
+        }
+
+        .work-card-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .work-card-title {
+            font-size: 1.3rem;
+            color: var(--cream);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .work-card-description {
+            color: var(--light-cream);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .work-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* STATS SECTION */
+        .stats-section {
+            background-color: var(--dark-olive);
+            background-image:
+                radial-gradient(circle, rgba(212, 178, 104, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .stats-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--cream);
+            margin-bottom: 3rem;
+            font-weight: 800;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(78, 81, 68, 0.5);
+            border: 1px solid var(--gold);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--cream);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* PHILOSOPHIES / FAQ SECTION */
+        .philosophies {
+            background-color: var(--light-cream);
+            padding: 6rem 2rem;
+        }
+
+        .philosophies-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .philosophy-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .philosophy-item {
+            padding: 1rem 1.5rem;
+            background: var(--medium-olive);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--cream);
+            font-weight: 600;
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.05em;
+            font-size: 0.85rem;
+        }
+
+        .philosophy-item::before {
+            content: '[ ';
+        }
+
+        .philosophy-item::after {
+            content: ' ]';
+        }
+
+        .philosophy-item:hover,
+        .philosophy-item.active {
+            background: var(--gold);
+            color: var(--dark-olive);
+        }
+
+        .philosophy-content {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid #e0d9c9;
+        }
+
+        .philosophy-content h3 {
+            font-size: 1.5rem;
+            color: var(--dark-olive);
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-content p {
+            color: var(--medium-olive);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background-color: var(--dark-olive);
+            background-image:
+                radial-gradient(circle, rgba(212, 178, 104, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .cta-headline {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--cream);
+            margin-bottom: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .cta-highlight {
+            color: var(--gold);
+        }
+
+        .cta-section .btn-cta {
+            margin-top: 2rem;
+            font-size: 1.05rem;
+            padding: 1rem 2.2rem;
+        }
+
+        /* COMING SOON SECTION */
+        .coming-soon {
+            background-color: var(--light-cream);
+            padding: 4rem 2rem;
+        }
+
+        .coming-soon-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--dark-olive);
+            border: 2px solid var(--gold);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .coming-soon-label {
+            margin-bottom: 1.5rem;
+        }
+
+        .coming-soon-title {
+            font-size: 2rem;
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+        }
+
+        .coming-soon-description {
+            color: var(--light-cream);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* SCROLLING TICKER */
+        .scrolling-ticker {
+            background-color: var(--dark-olive);
+            padding: 2rem;
+            overflow: hidden;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .ticker-content {
+            display: flex;
+            gap: 3rem;
+            animation: slide 30s linear infinite;
+            white-space: nowrap;
+            align-items: center;
+        }
+
+        .ticker-item {
+            color: var(--gold);
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .ticker-divider {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: var(--dark-olive);
+            border-top: 2px solid var(--gold);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-copy {
+            color: var(--medium-olive);
+            font-size: 0.85rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scroll-horizontal {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 1.5rem;
+            }
+
+            .phone-mockup-container {
+                display: none;
+            }
+
+            .notification-cards {
+                display: none;
+            }
+
+            .sticky-nav {
+                flex-wrap: wrap;
+                padding: 0.75rem 1rem;
+                border-radius: 20px 20px 0 0;
+            }
+
+            .sticky-nav-links {
+                gap: 1rem;
+                margin-left: 0.5rem;
+                font-size: 0.8rem;
+            }
+
+            .philosophies-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --spacing: 0.75rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .sticky-nav {
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
+
+            .sticky-logo {
+                font-size: 0.9rem;
+            }
+
+            .sticky-nav-links {
+                display: none;
+            }
+
+            .sticky-nav .btn-cta {
+                margin-left: 0;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .how-it-works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-title {
+                font-size: 1.8rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .cta-headline {
+                font-size: 1.8rem;
+            }
+
+            .footer-links {
+                gap: 1rem;
+            }
+
+            .logo-bar-content {
+                gap: 1rem;
+            }
+
+            .ticker-item {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-bottom: 70px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .sticky-nav {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .sticky-nav-links a::after {
+                display: none;
+            }
+
+            .coming-soon-card {
+                padding: 2rem;
+            }
+
+            .work-card {
+                padding: 1.5rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .philosophies-container {
+                gap: 2rem;
+            }
+
+            .philosophy-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Content That Prints Money.</h1>
+            <p class="subtitle">Clone winning TikTok Shop videos, insert your product, and auto-schedule months of unique variations. No filming. No filters. Just results.</p>
+            <button class="btn-cta hero-cta">Get Early Access</button>
+        </div>
+
+        <div class="phone-mockup-container">
+            <div class="phone-frame">
+                <div class="phone-screen">
+                    <div class="tiktok-ui">
+                        <div class="play-button"></div>
+                        <div class="tiktok-icon">TK</div>
+                        <p style="color: var(--gold); font-size: 0.7rem; margin-top: 20px;">Tap to play</p>
+                    </div>
+                </div>
+            </div>
+            <div class="notification-cards">
+                <div class="notification-card">
+                    <div class="notification-avatar">SK</div>
+                    <div class="notification-text"><strong>Sarah K.</strong> TikTok Affiliate just generated <strong>47 variations</strong></div>
+                </div>
+                <div class="notification-card">
+                    <div class="notification-avatar">MJ</div>
+                    <div class="notification-text"><strong>Marcus J.</strong> just made <strong>$12,400</strong> this month</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGO BAR -->
+    <section class="logo-bar">
+        <div class="logo-bar-content">
+            <div class="logo-item gold">TikTok Shop</div>
+            <div class="logo-divider"></div>
+            <div class="logo-item">Shopify</div>
+            <div class="logo-divider"></div>
+            <div class="logo-item gold">Amazon</div>
+            <div class="logo-divider"></div>
+            <div class="logo-item">eBay</div>
+            <div class="logo-divider"></div>
+            <div class="logo-item gold">WooCommerce</div>
+            <div class="logo-divider"></div>
+            <div class="logo-item">BigCommerce</div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <div class="monospace-label label-bracket section-label">How It Works</div>
+                <h2>Three Steps to $100K+</h2>
+                <p>Our AI handles the heavy lifting so you can focus on sales and scaling.</p>
+            </div>
+
+            <div class="how-it-works-grid">
+                <div class="work-card">
+                    <div class="work-card-number">001</div>
+                    <span class="work-card-icon">ð</span>
+                    <div class="work-card-title">Find Winning Videos</div>
+                    <p class="work-card-description">Discover viral TikTok Shop content that's already proven to convert. Our algorithm finds the winners so you don't have to.</p>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-card-number">002</div>
+                    <span class="work-card-icon">ð¬</span>
+                    <div class="work-card-title">Insert Your Product</div>
+                    <p class="work-card-description">Upload your product details and let Svira automatically insert them into proven content templates. Instant customization.</p>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-card-number">003</div>
+                    <span class="work-card-icon">ð</span>
+                    <div class="work-card-title">Let Svira Cook</div>
+                    <p class="work-card-description">Our AI generates 50+ unique variations, passes all duplication filters, and auto-schedules them across your accounts. Done.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="stats-title">Stop Filming. Start Scaling.</h2>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">$5M+</div>
+                    <div class="stat-label">Pipeline Generated</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Videos Created</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Filter Pass Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHIES SECTION -->
+    <section class="philosophies">
+        <div class="container">
+            <div class="philosophies-container">
+                <div class="philosophy-list">
+                    <div class="philosophy-item active" data-philosophy="0">Why TikTok Shop</div>
+                    <div class="philosophy-item" data-philosophy="1">Why Not Film Yourself</div>
+                    <div class="philosophy-item" data-philosophy="2">The Duplication Problem</div>
+                    <div class="philosophy-item" data-philosophy="3">Scale Without Limits</div>
+                </div>
+
+                <div class="philosophy-content">
+                    <h3 id="phil-title">Why TikTok Shop is the Future</h3>
+                    <p id="phil-text">TikTok Shop is the fastest-growing e-commerce platform with the lowest barrier to entry. Unlike traditional affiliate programs, TikTok Shop rewards creators who can consistently produce content. But here's the catch: you need volume. Svira gives you that volume without the burnout.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-headline">Traditional content creation is dead.<br><span class="cta-highlight">Svira is the future.</span></h2>
+            <p style="color: var(--cream); font-size: 1.1rem; margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Join hundreds of TikTok Shop affiliates generating 6-7 figures without ever stepping in front of a camera.</p>
+            <button class="btn-cta">Get Started</button>
+        </div>
+    </section>
+
+    <!-- COMING SOON SECTION -->
+    <section class="coming-soon">
+        <div class="coming-soon-card">
+            <div class="monospace-label label-bracket">Top Secret</div>
+            <h2 class="coming-soon-title">Coming Soon...</h2>
+            <p class="coming-soon-description">We're working on game-changing features that will revolutionize affiliate marketing. Advanced AI models, native TikTok integration, and automation capabilities beyond imagination.</p>
+            <button class="btn-cta">Inquire Within</button>
+        </div>
+    </section>
+
+    <!-- SCROLLING TICKER -->
+    <section class="scrolling-ticker">
+        <div class="ticker-content">
+            <span class="ticker-item">Unique</span>
+            <span class="ticker-divider"></span>
+            <span class="ticker-item">Scalable</span>
+            <span class="ticker-divider"></span>
+            <span class="ticker-item">Automated</span>
+            <span class="ticker-divider"></span>
+            <span class="ticker-item">Undetectable</span>
+            <span class="ticker-divider"></span>
+            <span class="ticker-item">Unique</span>
+            <span class="ticker-divider"></span>
+            <span class="ticker-item">Scalable</span>
+            <span class="ticker-divider"></span>
+            <span class="ticker-item">Automated</span>
+            <span class="ticker-divider"></span>
+            <span class="ticker-item">Undetectable</span>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">svira</div>
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2024 Svira. The TikTok Shop Affiliate's Secret Weapon.</p>
+    </footer>
+
+    <!-- STICKY BOTTOM NAVIGATION -->
+    <nav class="sticky-nav">
+        <div class="sticky-logo">svira</div>
+        <div class="sticky-nav-links">
+            <a href="#how">How It Works</a>
+            <a href="#features">Features</a>
+            <a href="#stats">Results</a>
+            <a href="#faq">FAQ</a>
+        </div>
+        <button class="btn-cta">Get Early Access</button>
+    </nav>
+
+    <script>
+        // Philosophy accordion functionality
+        const philosophyItems = document.querySelectorAll('.philosophy-item');
+        const philosophyTitle = document.getElementById('phil-title');
+        const philosophyText = document.getElementById('phil-text');
+
+        const philosophyData = [
+            {
+                title: 'Why TikTok Shop is the Future',
+                text: 'TikTok Shop is the fastest-growing e-commerce platform with the lowest barrier to entry. Unlike traditional affiliate programs, TikTok Shop rewards creators who can consistently produce content. But here\'s the catch: you need volume. Svira gives you that volume without the burnout.'
+            },
+            {
+                title: 'Why Not Film Yourself?',
+                text: 'Filming content is exhausting, time-consuming, and expensive. You need better lighting, cameras, editing skills, and consistent inspiration. Svira eliminates all of that. We clone content that\'s already proven to work, so you spend zero time creating and 100% time selling.'
+            },
+            {
+                title: 'The Duplication Problem',
+                text: 'TikTok\'s algorithm penalizes duplicate content. But Svira\'s AI generates unlimited variations that pass all filters. Every single video is unique enough to avoid detection, yet similar enough to keep the winning formula intact. It\'s the perfect balance.'
+            },
+            {
+                title: 'Scale Without Limits',
+                text: 'Most creators max out at 10-15 videos per week. Svira pushes out 50+ variations every single week. You go from bottlenecked to bulletproof. More content means more exposure, more clicks, and more commissions. The math is simple.'
+            }
+        ];
+
+        philosophyItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                philosophyItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                philosophyTitle.textContent = philosophyData[index].title;
+                philosophyText.textContent = philosophyData[index].text;
+            });
+        });
+
+        // Smooth scroll for sticky nav links
+        document.querySelectorAll('.sticky-nav-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // CTA button functionality
+        const ctaButtons = document.querySelectorAll('.btn-cta');
+        ctaButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Welcome to Svira! Early access form coming soon.');
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.work-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Ticker infinite scroll
+        const tickerContent = document.querySelector('.ticker-content');
+        const tickerItems = Array.from(tickerContent.children);
+
+        tickerItems.forEach(item => {
+            const clone = item.cloneNode(true);
+            tickerContent.appendChild(clone);
+        });
+
+        // Sticky nav scroll effect
+        let lastScroll = 0;
+        const stickyNav = document.querySelector('.sticky-nav');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                stickyNav.style.opacity = '1';
+                stickyNav.style.visibility = 'visible';
+            } else {
+                stickyNav.style.opacity = '0.9';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown') {
+                window.scrollBy({ top: 50, behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp') {
+                window.scrollBy({ top: -50, behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Svira â The TikTok Shop Affiliate's Secret Weapon</title>
     <meta name="description" content="Clone winning TikTok content. Insert your product. Auto-schedule months of unique variations that pass all duplication filters.">
