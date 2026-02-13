@@ -11,21 +11,21 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #5E2FB9;
-            --primary-light: #7C3AED;
+            --primary: #6B4CE6;
+            --primary-light: #7C5CFC;
             --primary-lighter: #a78bfa;
-            --primary-glow: rgba(94, 47, 185, 0.12);
-            --primary-glow-strong: rgba(94, 47, 185, 0.25);
+            --primary-glow: rgba(107, 76, 230, 0.12);
+            --primary-glow-strong: rgba(107, 76, 230, 0.25);
             --bg: #FAF9FE;
             --bg-alt: #F3F0FB;
             --bg-card: #ffffff;
             --bg-dark-card: #1a1333;
             --bg-dark: #0f0a1e;
-            --text: #1e1533;
-            --text-muted: #6b5f80;
+            --text: #1a2a3a;
+            --text-muted: #556878;
             --text-light: rgba(255,255,255,0.85);
-            --border: #e9e4f5;
-            --border-strong: #d4cceb;
+            --border: #e5e1f0;
+            --border-strong: #d0cae0;
             --radius: 16px;
             --radius-lg: 24px;
         }
@@ -63,7 +63,7 @@
             padding: 0 24px;
         }
 
-        /* ===== CNT BUTTON ===== */
+        /* ===== CTA BUTTON ===== */
         .btn-cta {
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: #fff;
@@ -405,6 +405,58 @@
             color: var(--text);
             text-decoration: none;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo-orb {
+            width: 22px; height: 22px;
+            background: radial-gradient(circle at 35% 35%, #a78bfa, var(--primary) 60%, #5238a8);
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .logo-orb::before {
+            content: '';
+            position: absolute;
+            top: 5px; left: 6px;
+            width: 5px; height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.85;
+        }
+
+        .logo-orb::after {
+            content: 'â¦';
+            position: absolute;
+            top: -6px; left: -8px;
+            font-size: 0.5rem;
+            color: var(--text);
+            opacity: 0.7;
+        }
+
+        .footer-logo-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo-wrap .logo-orb {
+            width: 32px; height: 32px;
+        }
+
+        .footer-logo-wrap .logo-orb::before {
+            top: 8px; left: 9px;
+            width: 7px; height: 5px;
+        }
+
+        .footer-logo-wrap .logo-orb::after {
+            top: -8px; left: -10px;
+            font-size: 0.6rem;
         }
 
         .sticky-nav-links {
@@ -435,6 +487,266 @@
             flex-shrink: 0;
             padding: 10px 20px;
             font-size: 0.82rem;
+        }
+
+        /* ===== PROCESS VISUAL ===== */
+        .process-section {
+            background: linear-gradient(160deg, #1a1333 0%, var(--bg-dark) 100%);
+            padding: clamp(60px, 8vw, 100px) 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-section::before {
+            content: '';
+            position: absolute;
+            top: -20%; left: 50%;
+            transform: translateX(-50%);
+            width: 700px; height: 400px;
+            background: radial-gradient(ellipse, rgba(94, 47, 185, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+
+        .process-header .mono-label {
+            margin-bottom: 0.75rem;
+            display: block;
+            color: var(--primary-lighter);
+        }
+
+        .process-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+
+        .process-header p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .process-pipeline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-icon-wrap {
+            width: 90px; height: 90px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .step-icon-wrap:hover { transform: scale(1.08); }
+
+        .step-input .step-icon-wrap {
+            background: linear-gradient(135deg, #2d2250, #3a2d6b);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            box-shadow: 0 8px 30px rgba(94, 47, 185, 0.15);
+        }
+
+        .step-ai .step-icon-wrap {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border: 1px solid rgba(167, 139, 250, 0.4);
+            box-shadow: 0 8px 40px var(--primary-glow-strong), 0 0 60px rgba(94, 47, 185, 0.2);
+            animation: pulse-glow 3s ease-in-out infinite alternate;
+        }
+
+        .step-output .step-icon-wrap {
+            background: linear-gradient(135deg, #1a2e1a, #2a452a);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            box-shadow: 0 8px 30px rgba(74, 222, 128, 0.1);
+        }
+
+        .step-label {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+
+        .step-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            max-width: 180px;
+        }
+
+        .step-arrow {
+            font-size: 1.5rem;
+            color: var(--primary-lighter);
+            opacity: 0.6;
+            padding: 0 12px;
+            align-self: flex-start;
+            margin-top: 30px;
+        }
+
+        .process-cta {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-cta p {
+            color: var(--primary-lighter);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .process-cta .btn-cta {
+            display: inline-flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 8px 40px var(--primary-glow-strong), 0 0 60px rgba(94, 47, 185, 0.2); }
+            100% { box-shadow: 0 8px 60px var(--primary-glow-strong), 0 0 90px rgba(94, 47, 185, 0.3); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-visual {
+                padding: 0 20px;
+            }
+            .notification-card:nth-child(1) { right: -8%; }
+            .notification-card:nth-child(2) { left: -3%; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content-wrap {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                align-items: center;
+            }
+
+            .hero-text h1 {
+                font-size: clamp(2rem, 7vw, 2.8rem);
+            }
+
+            .hero-visual {
+                margin-top: 2rem;
+            }
+
+            .notification-card { display: none !important; }
+
+            .sticky-nav-links { display: none; }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-pipeline {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .step-arrow {
+                transform: rotate(90deg);
+                padding: 0;
+                margin-top: 0;
+                align-self: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: clamp(1.6rem, 6vw, 2.2rem);
+            }
+
+            .hero-text p {
+                font-size: 0.95rem;
+            }
+
+            .phone-mockup {
+                width: 200px;
+                height: 410px;
+            }
+
+            .sticky-nav {
+                width: calc(100% - 24px);
+                padding: 8px 10px 8px 14px;
+            }
+
+            .sticky-logo { font-size: 0.95rem; }
+
+            .sticky-nav .btn-cta {
+                padding: 8px 14px;
+                font-size: 0.78rem;
+            }
+
+            .step-icon-wrap {
+                width: 70px; height: 70px;
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-text h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-text p {
+                font-size: 0.9rem;
+            }
+
+            .btn-cta {
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
+
+            .step-icon-wrap {
+                width: 60px; height: 60px;
+                font-size: 1.5rem;
+                border-radius: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Scroll-Away Wrapper -->
+    <div class="hero-scroll-wrap">
+        <div class="hero-sticky">
+            <section class="hero-section hero-animate">
+                <div class="hero-content-wrap">
+                    <div class="hero-text">
+                        <span class="mono-label">AI-Powered Content Cloning</span>
+                        <h1>Clone Your Winners. <span class="gradient-text">10x Your Chances.</span></h1>
+                        <p>Shoot once, publish everywhere. Svira clones your top-performing content into dozens of unique variations, schedules them across TikTok, Instagram, YouTube Shorts &amp; more&mdash;so you 10x your chances of going viral without filming, editing, or thinking.</p>
+                        <div class="hero-buttons">
+                            <a href="#early-access" class="btn-cta">Get7rap { width: 60px; height: 60px; font-size: 1.5rem; border-radius: 16px; }
+            .step-title { font-size: 0.92rem; }
+            .step-desc { font-size: 0.75rem; }
+            .platform-pill { font-size: 0.75rem; padding: 6px 14px; }
         }
 
         /* ===== HOW IT WORKS ===== */
@@ -743,7 +1055,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1.5rem;
         }
 
         .footer-links {
@@ -857,8 +1168,8 @@
             <div class="hero-inner">
                 <div class="hero-content">
                     <span class="mono-label">Svira AI</span>
-                    <h1>Content That <span class="gradient-text">Prints Money.</span></h1>
-                    <p class="subtitle">Clone winning TikTok Shop videos, insert your product, and auto-schedule months of unique variations. No filming. No filters. Just results.</p>
+                    <h1>Clone Your Winners. <span class="gradient-text">10x Your Chances.</span></h1>
+                    <p class="subtitle">Take any top-performing video â yours or a viral hit â and duplicate it into hundreds of unique variations. Auto-schedule months of posts across TikTok, Instagram, YouTube Shorts & more. The algorithm rewards volume. Now you have it.</p>
                     <div class="hero-buttons">
                         <button class="btn-cta">Get Early Access</button>
                         <button class="btn-outline">See How It Works</button>
@@ -889,6 +1200,82 @@
             </div>
         </section>
     </div>
+
+    <!-- PROCESS VISUAL -->
+    <section class="process-section">
+        <div class="container">
+            <div class="process-header reveal">
+                <span class="mono-label">The Formula</span>
+                <h2>Plug In. Clone. Dominate.</h2>
+                <p>No filming. No editing. No thinking required. Just plug and play.</p>
+            </div>
+
+            <div class="process-pipeline reveal">
+                <div class="process-step step-input">
+                    <div class="step-icon-wrap">
+                        <span class="step-number">1</span>
+                    </div>
+                    <div class="step-title">Link a Winner</div>
+                    <div class="step-desc">Paste any viral video URL</div>
+                </div>
+
+                <div class="process-arrow">
+                    <svg viewBox="0 0 40 20"><path d="M0,10 L30,10 M24,4 L32,10 L24,16"/></svg>
+                </div>
+
+                <div class="process-step step-ai">
+                    <div class="step-icon-wrap">
+                        <span class="step-number">&#10024; svira</span>
+                    </div>
+                    <div class="step-title">AI Clones It</div>
+                    <div class="step-desc">Hundreds of unique spins</div>
+                </div>
+
+                <div class="process-arrow">
+                    <svg viewBox="0 0 40 20"><path d="M0,10 L30,10 M24,4 L32,10 L24,16"/></svg>
+                </div>
+
+                <div class="process-step step-output">
+                    <div class="step-icon-wrap">
+                        <span class="step-number">100+</span>
+                    </div>
+                    <div class="step-title">Variations Ready</div>
+                    <div class="step-desc">Each one unique &amp; original</div>
+                </div>
+
+                <div class="process-arrow">
+                    <svg viewBox="0 0 40 20"><path d="M0,10 L30,10 M24,4 L32,10 L24,16"/></svg>
+                </div>
+
+                <div class="process-step step-schedule">
+                    <div class="step-icon-wrap">
+                        <span class="step-number">&#128197;</span>
+                    </div>
+                    <div class="step-title">Auto-Scheduled</div>
+                    <div class="step-desc">Months of content, done</div>
+                </div>
+            </div>
+
+            <div class="process-multiplier reveal">
+                <div class="multiplier-line">
+                    <span class="multiplier-old">1 post/day</span>
+                    <span class="multiplier-vs">vs</span>
+                    <span class="multiplier-badge">100+ posts/day with Svira</span>
+                </div>
+            </div>
+
+            <p class="process-bottom reveal">
+                The algorithm rewards volume. While others grind for one video a day, you're flooding the feed with unique content. <strong>Play the algorithm like a fiddle.</strong>
+            </p>
+
+            <div class="platform-pills reveal">
+                <span class="platform-pill"><span class="pill-dot"></span> TikTok</span>
+                <span class="platform-pill"><span class="pill-dot"></span> Instagram Reels</span>
+                <span class="platform-pill"><span class="pill-dot"></span> YouTube Shorts</span>
+                <span class="platform-pill"><span class="pill-dot"></span> More Coming</span>
+            </div>
+        </div>
+    </section>
 
     <!-- HOW IT WORKS -->
     <section class="how-it-works" id="how">
@@ -1004,7 +1391,7 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-logo">svira</div>
+        <div class="footer-logo-wrap"><span class="logo-orb"></span><span class="footer-logo">svira</span></div>
         <div class="footer-links">
             <a href="#privacy">Privacy Policy</a>
             <a href="#terms">Terms of Service</a>
@@ -1015,7 +1402,7 @@
 
     <!-- STICKY NAV -->
     <nav class="sticky-nav">
-        <div class="sticky-logo">svira</div>
+        <div class="sticky-logo"><span class="logo-orb"></span>svira</div>
         <div class="sticky-nav-links">
             <a href="#how">How It Works</a>
             <a href="#features">Features</a>
